@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI
 from app.core.database import Base, engine
 
@@ -11,12 +13,27 @@ from app.models import (
     thresholds,
     appeals,
 )  # noqa: F401
+from app.routers import health
+
+# ---------
+# Logging
+# ---------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Competition Management System API", version="0.1.0")
 
 Base.metadata.create_all(bind=engine)
 
+app.include_router(health.router)
 
-@app.get("/")
-def read_root():
-    return {"message": "DB models are set up and tables are created."}
+@app.get("/", summary="Root Endpoint", tags=["Root"])
+def root():
+    """
+    Root endpoint to verify the system is up.
+    """
+    logger.info("ROOT ENDPOINT")
+    return {"message": "Competition Management System API"}
