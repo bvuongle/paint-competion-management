@@ -1,0 +1,69 @@
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# FastAPI specific
+instance/
+*.log
+
+# Alembic
+alembic/versions/*.pyc
+alembic.ini
+
+# Docker
+*.log
+*.pid
+*.seed
+*.pid.lock
+*.swp
+docker-compose.override.yml
+.dockerignore
+/.docker/
+
+# Node.js / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/build/
+/coverage/
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+.env.local
+
+# PostgreSQL
+pgdata/
+*.sql
+
+# IDE/editor settings
+.idea/
+.vscode/
+*.swp
+
+# MacOS
+.DS_Store
+
+# Miscellaneous
+*.bak
+*.orig
+*.old
+*.swp
+*.tmp
+
+# Project custom configuration
+/backend/__pycache__
+/backend/app/__pycache__
+/backend/app/tests/__pycache__
+/frontend/node_modules
+/frontend/build
