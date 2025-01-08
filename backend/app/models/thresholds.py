@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Float, DateTime, ForeignKey, func
-from backend.app.core.database import Base
+from app.core.database import Base
 
 
 class Threshold(Base):

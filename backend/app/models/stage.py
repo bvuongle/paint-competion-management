@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean, DateTime, func
-from backend.app.core.database import Base
+from app.core.database import Base
 
 
 class Stage(Base):
