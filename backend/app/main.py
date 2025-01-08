@@ -13,7 +13,7 @@ from app.models import (
     thresholds,
     appeals,
 )  # noqa: F401
-from app.routers import health
+from app.routers import health, auth
 
 # ---------
 # Logging
@@ -29,6 +29,7 @@ app = FastAPI(title="Competition Management System API", version="0.1.0")
 Base.metadata.create_all(bind=engine)
 
 app.include_router(health.router)
+app.include_router(auth.router)
 
 @app.get("/", summary="Root Endpoint", tags=["Root"])
 def root():
