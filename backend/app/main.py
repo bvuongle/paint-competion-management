@@ -13,7 +13,12 @@ from app.models import (
     thresholds,
     appeals,
 )  # noqa: F401
-from app.routers import health, auth, users
+from app.routers import (
+    health,
+    auth,
+    users,
+    participants,
+)
 
 # ---------
 # Logging
@@ -31,7 +36,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(health.router)
 app.include_router(auth.router)
 app.include_router(users.router)
-
+app.include_router(participants.router)
 
 @app.get("/", summary="Root Endpoint", tags=["Root"])
 def root():
