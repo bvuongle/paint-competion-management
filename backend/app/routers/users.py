@@ -5,9 +5,8 @@ from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.models.users import User
-from app.routers.auth import get_current_user
 from app.schemas.users import UserBase, UserRead
-from app.core.security import hash_password
+from app.core.security import requires_roles
 
 router = APIRouter(prefix="/users", tags=["Users"])
 logger = logging.getLogger(__name__)
@@ -16,8 +15,10 @@ logger = logging.getLogger(__name__)
 @router.get("/", response_model=List[UserRead],
             summary="List all users",
             response_description="A list of all registered users.")
-def list_users(db: Session = Depends(get_db),
-               current_user: User = Depends(get_current_user)):
+def list_users(
+        db: Session = Depends(get_db),
+        current_user: User = Depends(requires_roles("admin"))
+    ) -> List[User]:
     """
     Returns all users in the system.
     Only an admin can list all users.
@@ -36,7 +37,7 @@ def update_user(
         user_id: int,
         user_data: UserBase,
         db: Session = Depends(get_db),
-        current_user: User = Depends(get_current_user)
+        current_user: User = Depends(requires_roles(["admin"]))
 ):
     """
     Allows an admin to update a user's username or role.
@@ -62,7 +63,7 @@ def update_user(
 def delete_user(
         user_id: int,
         db: Session = Depends(get_db),
-        current_user: User = Depends(get_current_user)
+        current_user: User = Depends(requires_roles(["admin"]))
 ):
     """
     Allows admin to delete a user from the system.

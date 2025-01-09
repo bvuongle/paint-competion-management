@@ -13,8 +13,6 @@ from app.schemas.users import UserRead
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 logger = logging.getLogger(__name__)
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-
 
 @router.post("/register", response_model=UserRead,
              summary="Register a new user",
@@ -64,7 +62,7 @@ def login_user(
             detail="Invalid username or password"
         )
 
-    if not verify_password(login_data.password, db_user.password_hash.value, pepper=settings.PEPPER):
+    if not verify_password(login_data.password, db_user.password_hash, pepper=settings.PEPPER):
         logger.warning("Incorrect password for user=%s", login_data.username)
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
