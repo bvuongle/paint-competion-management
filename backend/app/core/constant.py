@@ -1,0 +1,1 @@
+VALID_ROLES = {"admin", "jury", "participant"}
