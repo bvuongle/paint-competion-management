@@ -11,8 +11,8 @@ from app.core.config import settings
 from app.core.constant import VALID_ROLES
 from app.core.database import get_db
 from app.models.users import User
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 logger = logging.getLogger(__name__)
 
 
