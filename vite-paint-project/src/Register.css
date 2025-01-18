@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Oswald";
+  src: local("Oswald"),
+    url(./fonts/oswald/Oswald-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans"),
+    url(./fonts/open_sans/OpenSans-Regular.ttf) format("opentype");
+}
+
+.sign-in-text {
+  font-family: "Oswald";
+  font-size: 40px;
+  text-align: center;
+  color: rgb(34, 64, 128);
+  /* border-bottom: solid rgba(117, 117, 117, 0.463); */
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
