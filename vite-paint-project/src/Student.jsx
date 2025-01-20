@@ -1,9 +1,16 @@
-import "./App.css";
+import { Button } from "@mui/material";
+import "./Student.css";
+import "./StudentAppealPopup.jsx";
+import "./StudentAppealPopup.css";
 // import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+import { useState } from "react";
+import StudentAppealPopup from "./StudentAppealPopup.jsx";
 
-function App() {
-  return (
+function Student() {
+  const [appeal, setAppeal] = useState(true);
+
+  return appeal ? (
     <>
       <div className="top-bar">
         <div className="p-start">OLIMPIADA GEOGRAFICZNA</div>
@@ -26,9 +33,17 @@ function App() {
       </div>
       <div className="stage">
         <div className="test-type">Test ustny</div>
-        <div className="grade">ocena: 89/100p. (89%)</div>
+        <div className="grade">ocena: 82/100p. (82%)</div>
         <div className="step">próg: 88/100 (88%)</div>
-        <div className="verdict">PRZECHODZISZ DALEJ</div>
+        <div className="verdict">
+          <Button
+            onClick={() => setAppeal(!appeal)}
+            title="Kliknij, aby złożyć apelację do Jury Konkursu"
+            className="appeal-btn"
+          >
+            APELUJ
+          </Button>
+        </div>
       </div>
       {/*
       <p>
@@ -40,7 +55,9 @@ function App() {
         <div className="grade">ocena: 86/100 (86%)</div>
       </div>
     </>
+  ) : (
+    <StudentAppealPopup student_state={appeal} student_setState={setAppeal} />
   );
 }
 
-export default App;
+export default Student;

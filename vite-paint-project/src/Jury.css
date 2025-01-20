@@ -3,15 +3,21 @@
     src: local('Oswald'), url(./fonts/oswald/Oswald-Regular.ttf) format('opentype');
 }
 
+.top-bar {
+    border-bottom: solid rgba(0, 0, 0, 0.5);
+    height: 40px;
+}
+
+.user-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1%;
+}
+
 .p-start {
     font-family: "Oswald";
     font-size: 18px;
     padding: 0.5%;
     color: rgb(34, 64, 128);
-}
-
-.grades-header {
-    font-family: "Oswald";
-    font-size: 24px;
-    text-align: center;
 }

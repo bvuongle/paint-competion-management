@@ -89,3 +89,16 @@
     font-size: 24px;
     text-align: center;
 }
+
+.appeal-btn {
+    font-family: "Open Sans" !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    height: 22px;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(93, 93, 93, 0.634);
+}

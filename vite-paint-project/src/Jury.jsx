@@ -46,7 +46,7 @@ function Jury() {
                 <b>Ocena</b>
               </TableCell>
               <TableCell align="center">
-                <b>Czy przeszedł dalej</b>
+                <b>Czy przeszedł dalej?</b>
               </TableCell>
             </TableRow>
           </TableHead>
